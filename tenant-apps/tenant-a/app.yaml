@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tenant-a-app
-  namespace: tenant-a
 spec:
   replicas: 1
   selector:
