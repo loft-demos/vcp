@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tenant-b-app
+  namespace: tenant-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tenant-b-app
+  template:
+    metadata:
+      labels:
+        app: tenant-b-app
+    spec:
+      nodeSelector:
+        vcluster.loft.sh/node-provider: gcp-node-provider
+      containers:
+        - name: pause
+          image: registry.k8s.io/pause:3.10
